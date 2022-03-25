@@ -5,19 +5,30 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    favorites: []
+    favorites: [],
+    error: {
+      mensaje: "",
+      type: null
+  }
   },
   getters: {
   },
   mutations: {
     addToFavoritesM: (state, payload) => {
-      state.favorites.push(payload)
-    } 
+      if(!state.favorites.includes(payload))
+        state.favorites.push(payload)
+    },
+    changeError: (state, payload) => {
+      state.error = payload
+    }
   },
   actions: {
     addToFavorites: ({commit}, payload) => {
       commit('addToFavoritesM', payload)
-    }
+    },
+    changeError: ({commit}, payload) => {
+      commit('changeError', payload)
+    },
   },
   modules: {
   }

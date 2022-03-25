@@ -26,6 +26,7 @@
             </v-badge>
           </router-link>
         </v-toolbar>
+        <error></error>
         <router-view></router-view>
         <footer class="app-footer dark-brown">
           <p>123 Main Street | Smithfield, RI 90987 | 345-456-5678</p>
@@ -36,10 +37,14 @@
 </template>
  
 <script>
+import Error from "./components/ErrorComponent"
+
 export default {
   name: "App",
 
-  components: {},
+  components: {
+    Error
+  },
 
   data: () => ({
     themeSwitched: true,
